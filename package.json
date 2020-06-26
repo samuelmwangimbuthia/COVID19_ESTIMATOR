@@ -1,0 +1,26 @@
+{
+  "name": "covid19_estimator",
+  "version": "1.0.0",
+  "description": "Package for covid19 estimation and statistics",
+  "main": "main.js",
+  "scripts": {
+    "start": "http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelmwangimbuthia/COVID19_ESTIMATOR.git"
+  },
+  "author": "Samuel Mwangi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samuelmwangimbuthia/COVID19_ESTIMATOR/issues"
+  },
+  "homepage": "https://github.com/samuelmwangimbuthia/COVID19_ESTIMATOR#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "http-server": "^0.12.3"
+  }
+}
