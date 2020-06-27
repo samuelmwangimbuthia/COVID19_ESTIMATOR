@@ -1,0 +1,29 @@
+{
+    "root": true,
+    "extends": [
+      "airbnb",
+      "prettier"
+    ],
+    "plugins":[
+      "prettier"
+    ],
+
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "mocha": true
+    },
+    "rules": {
+      "prettier/prettier":"error",
+      "no-unused-vars":"warn",
+      "func-names":"off",
+      "object-shorthand":"off",
+      "class-methods-use-this":"off",
+      "no-console":"off"
+  
+    }
+  }
