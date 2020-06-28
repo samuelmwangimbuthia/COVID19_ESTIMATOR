@@ -1,4 +1,4 @@
-const data = {
+const inputData = {
   region: {
     name: 'Africa',
     avgAge: 19.7,
@@ -12,4 +12,4 @@ const data = {
   totalHospitalBeds: 1380614,
 };
 
-export default data;
+export default inputData;

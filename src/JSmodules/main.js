@@ -1,13 +1,14 @@
-import './data';
+import inputData from './data';
 
 const covid19ImpactEstimator = (data) => {
+  const { reportedCases } = inputData;
   const impact = {
-    currentlyInfected: data.reportedCases * 10,
-    infectionsByRequestedTime: this.currentlyInfected * 512,
+    currentlyInfected: reportedCases * 10,
+    infectionsByRequestedTime: () => impact.currentlyInfected * 512,
   };
   const severeImpact = {
-    currentlyInfected: data.reportedCases * 50,
-    infectionsByRequestedTime: this.currentlyInfected * 512,
+    currentlyInfected: reportedCases * 50,
+    infectionsByRequestedTime: () => impact.currentlyInfected * 512,
   };
   return {
     data,

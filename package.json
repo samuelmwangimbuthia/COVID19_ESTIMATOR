@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "start": "http-server",
-    "lint": "esw src --color"
+    "lint": "esw src --color",
+    "lint:watch":"npm run lint -- --watch"
   },
   "repository": {
     "type": "git",
