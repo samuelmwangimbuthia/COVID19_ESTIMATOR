@@ -1,0 +1,71 @@
+/*border-box fix*/
+:root{
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+/* lobotomized owl - top margin fix */
+
+body *+* {
+    margin-top: 1.5em;
+}
+
+/*styling the body element */
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #079b07
+}
+
+/* double container pattern */
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+/*styling the header */
+header {
+    background-color: #079;
+    color: #fff;
+}
+
+header > h1 {
+    padding: .5em
+}
+
+/* styling the navigation bar */
+.nav-site{
+    display: flex;
+    padding: .5em;
+    list-style-type: none;
+    background-color: #079;
+    border-radius: .2em;
+}
+
+/*override lobotomzed owl top margin*/
+.nav-site > li {
+    margin-top: 0;
+}
+
+.nav-site > li > a {
+    display: block;
+    text-decoration: none;
+    padding: .5em 1em;
+    background-color: #cc6b5a;
+}
+
+/* add spacing between the nav items */
+.nav-site > li+li {
+    margin-left: 1.5em;
+} 
+
+/* push the impact tab to the right end */
+
+.nav-site > .nav-right {
+    margin-left: auto;
+}
