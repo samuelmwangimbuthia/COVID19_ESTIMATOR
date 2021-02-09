@@ -69,3 +69,20 @@ header > h1 {
 .nav-site > .nav-right {
     margin-left: auto;
 }
+
+/* styling the main element*/
+.flex {
+    display: flex;
+}
+
+.tile {
+    background-color: #fff;
+    padding: .5em;
+    border-radius: 0.5em;
+}
+/* add spacing between the tiles and remove the top margin */
+.flex > *+* {
+    margin-top: 0;
+    margin-left: 1.5em;
+
+}
