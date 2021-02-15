@@ -71,10 +71,11 @@ header > h1 {
 }
 
 /* styling the main element*/
-.flex {
-    display: flex;
-    flex-wrap: wrap;
-       
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 0.5em;
 }
 
 .tile {
@@ -82,12 +83,27 @@ header > h1 {
     padding: .5em;
     border-style: ridge;
     border-radius: 0.5em;
-    flex: 0 0 calc(540px - 6em);
+}
+.tile cf {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+.tile ba {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+.tile df {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+.tile icu {
+    grid-column: 2/3;
+    grid-row: 2/3;
 }
 /* add spacing between the tiles and remove the top margin */
-.flex > *+* {
-    margin-left: 1.5em;
-    margin-top: 1.5em;
+.grid > *+* {
+
+    margin-top: 0;
 
 }
 
@@ -102,7 +118,6 @@ header > h1 {
 .data > div+div {
     margin-top: 0;
 }
-
 .column1{
     flex-flow: row wrap;
     flex: 1 0 50%;
