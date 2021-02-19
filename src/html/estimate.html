@@ -5,7 +5,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>COVID-19 ESTIMATOR</h1>
+            <h2>COVID-19 ESTIMATOR</h2>
         </header>
         <nav>
             <ul class="nav-site">
@@ -16,5 +16,85 @@
                 <li class="nav-right"><a href="/impact">Impact</a></li>
             </ul>
         </nav>
+        <div class="tile">
+            <span>
+                <label for="select-region">Region</label>
+                <select name="select-region">
+                    <option>Africa</option>
+                    <option>America</option>
+                    <option>Europe</option>
+                </select>
+            </span>
+            <span>
+                <label for="select-period">Period</label>
+                <select name="select-period">
+                    <option>Year</option>
+                    <option>Month</option>
+                    <option>Days</option>
+                </select>
+            </span>
+            
+        </div>
+        <main class="grid">
+
+            <div class="tile cf">
+                <h3>Currently Infected</h3> 
+                <div class="data">
+                    <div class="column1">
+                        <div class="normal title">Normal</div>
+                        <div class="units">10m</div>
+                    </div>
+                    <div class="column1">
+                        <div class="severe title">Severe</div>
+                        <div class="units">500m</div>
+                    </div>
+                </div>
+                <p>50X more people infected than known cases</p>
+            </div>
+            <div class="tile ba">
+                <h3>Beds Availability</h3>
+                <div class="data">
+                    <div class="column1">
+                        <div class="normal title">Normal</div>
+                        <div class="units">100</div>
+                        <div class="units">Available</div>
+                    </div>
+                    <div class="column1">
+                        <div class="severe title">Severe</div>
+                        <div class="units">-25</div>
+                        <div class="units">shortage</div>
+                    </div>                    
+                </div>
+                <p>Negative numbers indicate shortage</p>
+            </div>
+            <div class="tile df">
+                <h3>Dollars in Flight</h3>
+                <div class="data">
+                    <div class="column1">
+                        <div class="normal title">Normal</div>
+                        <div class="units">Kshs.100</div>
+                    </div>
+                    <div class="column1">
+                        <div class="severe title">Severe</div>
+                        <div class="units">Kshs.25Billion</div>
+                    </div>       
+                </div>
+                <p>50X more people infected than known cases</p>
+            </div>
+            <div class="tile icu">
+                <h3>ICU Care/Ventilators Required</h3>
+                <div class="data">
+                    <div class="column1">
+                        <div class="normal title">Available</div>
+                        <div class="units">100</div>
+                    </div>
+                    <div class="column1">
+                        <div class="severe title">shortage</div>
+                        <div class="units">700</div>
+                    </div>                    
+                </div>
+                <p>50X more people infected than known cases</p>
+            </div>
+        </main>
     </div>
 </body>

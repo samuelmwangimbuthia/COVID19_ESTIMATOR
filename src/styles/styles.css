@@ -19,9 +19,8 @@ body *+* {
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #079b07
+    background-image: linear-gradient(to bottom, #dcd4d4, #d2cdcd);
 }
-
 /* double container pattern */
 .container {
     max-width: 1080px;
@@ -30,10 +29,8 @@ body{
 
 /*styling the header */
 header {
-    background-color: #079;
-    color: #fff;
+    background-color: #7dafc9;
 }
-
 header > h1 {
     padding: .5em
 }
@@ -43,8 +40,9 @@ header > h1 {
     display: flex;
     padding: .5em;
     list-style-type: none;
-    background-color: #079;
+    background-color: #7dafc9;
     border-radius: .2em;
+    box-shadow: 0 0 0.4em #71a6c2 ;
 }
 
 /*override lobotomzed owl top margin*/
@@ -68,4 +66,71 @@ header > h1 {
 
 .nav-site > .nav-right {
     margin-left: auto;
+}
+
+/* styling the main element*/
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 0.5em;
+}
+
+.tile {
+    padding: .5em;
+    border-radius: 0.5em;
+    background-color: #7dafc9;
+    border: 1px solid transparent;
+    border-radius: 8px;
+}
+.tile cf {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+.tile ba {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+.tile df {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+.tile icu {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+/* add spacing between the tiles and remove the top margin */
+.grid > *+* {
+
+    margin-top: 0;
+
+}
+
+/* styling the items inside the estimate tiles */
+.data{
+    display: flex;
+    align-items: center;
+    border-radius: 0.5em;
+    box-shadow:0 0 0.2em #49606b ;
+}
+
+.data > div+div {
+    margin-top: 0;
+}
+.column1{
+    flex-flow: row wrap;
+    flex: 1 0 50%;
+}
+.title {
+    font-weight: bold;
+}
+
+.data {
+    font-size: 0.9em; 
+}
+
+.tile > h3 {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    box-shadow: 0 0 0.2em #49606b ;
 }
