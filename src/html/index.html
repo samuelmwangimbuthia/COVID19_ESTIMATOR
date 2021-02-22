@@ -4,19 +4,21 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h2>COVID-19 ESTIMATOR</h2>
-        </header>
-        <nav>
-            <ul class="nav-site">
-                <li><a href="/estimates">Estimates</a></li>
-                <li><a href="/statistics">Statistics</a></li>
-                <li><a href="/health-info">Health Info</a></li>
-                <li><a href="/news">News</a></li>
-                <li class="nav-right"><a href="/impact">Impact</a></li>
-            </ul>
+        <nav class="nav-container">
+            <div class="nav-container__inner">
+                <a class="home-link" href="estimate.html">COVID-19 ESTIMATOR</a>
+                <ul class="nav-site">
+                    <li><a href="estimate.html">Estimates</a></li>
+                    <li><a href="/statistics">Statistics</a></li>
+                    <li><a href="/health-info">Health Info</a></li>
+                    <li><a href="/news">News</a></li>
+                    <li class="nav-right"><a href="/impact">Impact</a></li>
+                </ul>
+            </div>
         </nav>
-        <div class="tile">
+
+        </nav>
+        <div class=" tile selection">
             <span>
                 <label for="select-region">Region</label>
                 <select name="select-region">
@@ -42,7 +44,7 @@
                 <div class="data">
                     <div class="column1">
                         <div class="normal title">Normal</div>
-                        <div class="units">10m</div>
+                        <div class="units" id="units">10m</div>
                     </div>
                     <div class="column1">
                         <div class="severe title">Severe</div>
@@ -97,4 +99,5 @@
             </div>
         </main>
     </div>
+    <script src="./dist/bundle.js"></script>
 </body>

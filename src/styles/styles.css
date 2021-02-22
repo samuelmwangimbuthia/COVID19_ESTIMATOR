@@ -1,6 +1,8 @@
 /*border-box fix*/
 :root{
     box-sizing: border-box;
+    --light-blue:#7dc983;
+    --light-brown: #cc6b5a;
 }
 
 *,
@@ -28,21 +30,31 @@ body{
 }
 
 /*styling the header */
-header {
-    background-color: #7dafc9;
+.nav-container {
+    background-color: var(--light-blue);
 }
-header > h1 {
+
+.nav-container__inner{
+    display: flex;
+    justify-content: space-between;
+    padding:0.625em 0;
+}
+
+
+.home-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.6rem;
     padding: .5em
 }
 
 /* styling the navigation bar */
 .nav-site{
     display: flex;
-    padding: .5em;
     list-style-type: none;
-    background-color: #7dafc9;
-    border-radius: .2em;
-    box-shadow: 0 0 0.4em #71a6c2 ;
+    background-color: var(--light-blue);
+    margin: 0;
 }
 
 /*override lobotomzed owl top margin*/
@@ -54,12 +66,12 @@ header > h1 {
     display: block;
     text-decoration: none;
     padding: .5em 1em;
-    background-color: #cc6b5a;
+    background-color: var(--light-brown);
 }
 
 /* add spacing between the nav items */
 .nav-site > li+li {
-    margin-left: 1.5em;
+    margin-left: 0.625em;
 } 
 
 /* push the impact tab to the right end */
@@ -133,4 +145,11 @@ header > h1 {
     border: 1px solid transparent;
     border-radius: 8px;
     box-shadow: 0 0 0.2em #49606b ;
+}
+.selection{
+    margin-top: 0.625em;
+}
+
+main {
+    margin-top: 0.625em
 }

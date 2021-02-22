@@ -1,4 +1,5 @@
 import inputData from './data';
+import _ from 'lodash'
 
 const covid19ImpactEstimator = (data) => {
   const {
@@ -16,11 +17,13 @@ const covid19ImpactEstimator = (data) => {
     severeCasesByRequestedTime: (requestedTimeInDays) => {
       return 0.15 * impact.infectionsByRequestedTime(requestedTimeInDays);
     },
+
     hospitalBedsByRequestedTime: (requestedTimeInDays) => {
       return (
         impact.severeCasesByRequestedTime(requestedTimeInDays) -
         Math.floor(0.35 * ((100 / 95) * totalHospitalBeds))
       );
+
     },
     casesForICUByRequestedTime: (requestedTimeInDays) => {
       return (5 / 100) * impact.infectionsByRequestedTime(requestedTimeInDays);
