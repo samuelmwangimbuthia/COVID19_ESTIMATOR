@@ -1,5 +1,5 @@
 import inputData from './data';
-import _ from 'lodash'
+import _ from 'lodash';
 
 const covid19ImpactEstimator = (data) => {
   const {
