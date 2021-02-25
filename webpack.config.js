@@ -18,25 +18,17 @@ module.exports= {
             inject: true
         }),
     ],
-    module: exports= {
     module: {
           rules: [
-            { test: /\.css$/, use:[
-                // style-loader
-                { loader: 'style-loader',
-                options: {
-                    modules: true
-                  } }
-                ]
-            },   
-            { test: /\.ts$/, use: 'ts-loader' }
+            { test: /\.css$/, use: 'style-loader'},   
+            { test: /\.ts$/, use: 'ts-loader' },
+            { test: /\.css$/, use: 'css-loader' }
           ]
         },
-    },
     devServer: {
         contentBase: path.join(__dirname, './dist'),
         compress: true,
-        port: 8080,
+        port: 9000,
     },
 
 };
