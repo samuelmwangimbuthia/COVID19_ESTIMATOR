@@ -1,6 +1,6 @@
 import inputData from './data';
 import _ from 'lodash';
-
+import '../api/statistics-db.json'
 const covid19ImpactEstimator = (data) => {
   const {
     reportedCases,

@@ -4,10 +4,13 @@
   "description": "Package for covid19 estimation and statistics",
   "main": "index.html",
   "scripts": {
-    "start": "webpack serve --open",
+    "start": "node src/JSmodules/buildScripts/srcServer.js",
     "lint": "esw src --color",
     "lint:watch": "npm run lint -- --watch",
-    "build": "webpack"
+    "build": "webpack",
+    "generate-mock-data": "babel-node src/JSmodules/buildScripts/generateMockStatistics",
+    "prestart-mockapi": "npm run generate-mock-data",
+    "start-mockapi": "json-server --watch src/api/statistics-db.json --port 3001"
   },
   "repository": {
     "type": "git",
@@ -38,6 +41,7 @@
     "eslint-watch": "^7.0.0",
     "html-webpack-plugin": "^5.2.0",
     "http-server": "^0.12.3",
+    "json-loader": "^0.5.7",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.17",
     "webpack": "^5.23.0",
@@ -45,7 +49,17 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "babel-loader": "^8.1.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "json-schema-faker": "^0.5.0-rcv.33",
+    "json-server": "^0.16.3",
     "lodash": "^4.17.21",
-    "prettier": "^2.0.5"
+    "nodemon": "^2.0.7",
+    "open": "^8.0.2",
+    "path": "^0.12.7",
+    "prettier": "^2.0.5",
+    "webpack-dev-middleware": "^4.1.0",
+    "whatwg-fetch": "^3.6.2"
   }
 }
