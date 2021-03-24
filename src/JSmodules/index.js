@@ -1,12 +1,21 @@
-import inputData from './data';
-import _ from 'lodash';
-import '../api/statistics-db.json'
-const covid19ImpactEstimator = (data) => {
-  const {
-    reportedCases,
+import _, { result } from 'lodash';
+import '../api/statistics-db.json';
+import {getUsers} from '../api/userApi'; 
+
+let data;
+
+getUsers().then(results=>{
+  data =results;
+  return data;
+})
+.then(data=> {
+  const [
+    {reportedCases, 
     totalHospitalBeds,
-    region: { avgDailyIncomeUSD },
-  } = data;
+    avgDailyIncomeUSD}
+  ] = data;
+
+
   const impact = {
     currentlyInfected: reportedCases * 10,
     infectionsByRequestedTime: (requestedTimeInDays) => {
@@ -71,6 +80,8 @@ const covid19ImpactEstimator = (data) => {
     data,
     impact,
     severeImpact,
-  };
-};
-export default covid19ImpactEstimator(inputData);
+  }; 
+
+})
+
+

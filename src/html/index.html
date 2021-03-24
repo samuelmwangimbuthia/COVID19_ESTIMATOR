@@ -21,10 +21,7 @@
         <div class=" tile selection">
             <span>
                 <label for="select-region">Region</label>
-                <select name="select-region">
-                    <option>Africa</option>
-                    <option>America</option>
-                    <option>Europe</option>
+                <select id="toggle" name="select-region">
                 </select>
             </span>
             <span>
@@ -113,6 +110,24 @@
                     </tbody>
                 </table>
         </div> -->
+        <footer>
+            <table>
+            <thead>
+                <th>&nbsp;</th>
+                <th>avgAge</th>
+                <th>avgDailyIncomeUSD</th>
+                <th>avgDailyIncomePopulation</th>
+                <th>periodType</th>
+                <th>timeToElapse</th>
+                <th>reportedCases</th>
+                <th>population</th>
+                <th>totalHospitalBeds</th>
+            </thead>
+            <tbody id='raw-data'>
+
+            </tbody>
+
+        </footer>
     </div>
     <script src="bundle.js"></script>
 </body>

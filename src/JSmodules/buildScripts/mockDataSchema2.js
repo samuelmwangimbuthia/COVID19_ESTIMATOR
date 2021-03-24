@@ -5,7 +5,7 @@ export const schema2 = {
       "type" : "array",
       "minItems": 3,
       "maxItems": 5,
-      "items": {
+        "items":{
         "type": "object",
         "properties": {
           "id": {
@@ -69,6 +69,7 @@ export const schema2 = {
           "reportedCases","population","totalHospitalBeds"]
         }
       }
+
     }, 
     "required": ["regions"]   
 }

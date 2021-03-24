@@ -1,9 +1,9 @@
 import covid from './index.js';
 import '../styles/styles.css';
 import render from './render';
+import {displayRawDatasessions} from './sessionTemplate'
 
 
 render();
-
-console.log(covid.impact.hospitalBedsByRequestedTime(464));
+displayRawDatasessions();
 console.log(render());
