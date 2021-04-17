@@ -21,23 +21,19 @@
         <div class=" tile selection">
             <span>
                 <label for="select-region">Region</label>
-                <select name="select-region">
-                    <option>Africa</option>
-                    <option>America</option>
-                    <option>Europe</option>
-                </select>
-            </span>
+                <select id="toggle"></select>
+            </span>             
+
             <span>
                 <label for="select-period">Period</label>
-                <select name="select-period">
-                    <option>Year</option>
-                    <option>Month</option>
-                    <option>Days</option>
+                <select id="toggle2" >
+                    <option >25364</option>
                 </select>
             </span>
+            <p></p>
             
         </div>
-        <main class="grid">
+        <main id="main--body" class="grid">
 
             <div class="tile cf">
                 <h3>Currently Infected</h3> 
@@ -96,8 +92,41 @@
                     </div>                    
                 </div>
                 <p>50X more people infected than known cases</p>
-            </div>
+            </div> -->
         </main>
+        <button id="button">Refresh</button>
+ <!--       <div id="text2"></div>
+
+            <h1>Users</h1>
+                <table>
+                    <thead>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                    </thead>
+                    <tbody id="users">
+                        
+                    </tbody>
+                </table>
+        </div> -->
+        <footer class="tile">
+            <table>
+            <thead>
+                <th>&nbsp;</th>
+                <th>avgAge</th>
+                <th>avgDailyIncomeUSD</th>
+                <th>avgDailyIncomePopulation</th>
+                <th>periodType</th>
+                <th>timeToElapse</th>
+                <th>reportedCases</th>
+                <th>population</th>
+                <th>totalHospitalBeds</th>
+            </thead>
+            <tbody id='raw-data'>
+
+            </tbody>
+
+        </footer>
     </div>
-    <script src="app.js"></script>
+    <script src="bundle.js"></script>
 </body>
