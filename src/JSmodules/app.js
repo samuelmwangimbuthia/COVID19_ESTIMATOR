@@ -4,6 +4,6 @@ import render from './render';
 import {displayRawDatasessions} from './sessionTemplate'
 
 
-render();
-displayRawDatasessions();
-console.log(render());
+//render();
+//displayRawDatasessions();
+//console.log(render());
