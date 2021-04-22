@@ -15,64 +15,82 @@ function selected() {
 
 selected();
 
+var getOptionValue = new Promise((resolve, reject) => {
+    document
+      .getElementById('toggle')
+      .addEventListener('change', function (evt) {
+        var selectedOptionValue = evt.currentTarget.value;
+        resolve(selectedOptionValue);
+      }
+  );
+});
 
 
+ getOptionValue.then(
+   function(evt){
+     console.log(typeof(evt))
+   }
+ )
 
-function getInputValue() {
-  return new Promise(function (resolve, reject) {
-    let rawData = document.getElementById('toggle2').value; 
-    if (rawData) {
-      resolve(document.getElementById('toggle2').value)
-    } else {
-      reject('error occurred');
-    }
-  });
-}
-
-getInputValue().then(
-  function fufilled(x) {
-    console.log(x);
-  },
-  function rejected(x) {
-    console.log(x);
-  }
-);
-/*let rawData = document.getElementById('toggle').value;
-
-let period = document.getElementById('periodToggle').value;
-console.log(delay())
-/*
-function p(x){
-  new Promise((reject,resolve)=>{
-  document.getElementById('toggle')
-})
-.then((p)=>{
-  console.log(p.value);
-})
-
-
-
-function add(fetchX,fetchY){
-  return Promise.all([fetchX, fetchY]) //immediately executed not async deffered
-    .then(function(values_1){
-  return values_1[0] + values_1[1];
-    })
-};
-
-add(delay(),period)
-  .then(function(sum){
-    console.log(sum)
-})
-
-
-export function sessions() {
+ getOptionValue.then(
+ function displayRawDatasessions(evt) {
   getUsers().then((data) => {
-    let regionRawData;
-    regionRawData = data.filter((element) => element.avgAge === rawData);
-    console.log(regionRawData);
-  });
-}
+    for(var i in data){
+      if(data[i].id === +evt){
+        let myArrays= data[i]
+        console.log(typeof(myArrays));
+        let rawOutputHead = '';
+        let rawOutputBody = '';
+
+        let keys = Object.keys(myArrays);
+        for (let i = 0; i < keys.length; i++) { 
+          console.log(keys[i], myArrays[keys[i]]);      
+        rawOutputHead += `<th>${keys[i]}</th>`;
+        rawOutputBody += `<td>${myArrays[keys[i]]}</td>`;
+
+  global.document.getElementById('raw-data-head').innerHTML = rawOutputHead;
+  global.document.getElementById('raw-data-body').innerHTML = rawOutputBody;
+
+}; 
+
+}     
+ }
+  })
+ })
+
+ //displayRawDatasessions();
+/*
+      
 */
+
+
+
+/*Handling button click in promises
+  // ideal for a single button click
+  var buttonPromise = new Promise((resolve,reject)=>{
+    document.getElementById('toggle').addEventListener('change',resolve);
+  });
+
+  buttonPromise.then(
+    function onfulfillment(evt){
+    var btnId = evt.currentTarget.value;
+    console.log(btnId);
+    },
+
+    function rejected(evt){
+      console.log(evt);
+
+    }
+  )
+  .then(
+    null,
+    function onrejection(err){    //to catch the error on reading target value
+      console.log(err)
+    }
+  )
+*/
+
+
 
 /* data.forEach((elements,index,array) =>{
         console.log(elements);
@@ -97,23 +115,4 @@ export function sessions() {
 // });
 //}
 
-/*export function displayRawDatasessions() {
-  getUsers().then((data) => {
-    data.forEach((elements) => {
-      let rawOutput = ' ';
-      rawOutput += `<tr>
-            <td>${elements.avgAge}</td>
-            <td>${elements.avgDailyIncomeUSD}</td>
-            <td>${elements.avgDailyIncomePopulation}</td>
-            <td>${elements.periodType}</td>
-            <td>${elements.timeToElapse}</td>
-            <td>${elements.reportedCases}</td>
-            <td>${elements.population}</td>
-            <td>${elements.totalHospitalBeds}</td>
-             </tr>`;
 
-      global.document.getElementById('raw-data').innerHTML = rawOutput;
-    });
-  });
-}
-*/
