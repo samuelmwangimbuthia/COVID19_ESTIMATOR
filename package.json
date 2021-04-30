@@ -8,6 +8,7 @@
     "lint": "esw src --color",
     "lint:watch": "npm run lint -- --watch",
     "build": "webpack",
+    "build-core": "asynquence",
     "generate-mock-data": "babel-node src/JSmodules/buildScripts/generateMockStatistics",
     "prestart-mockapi": "npm run generate-mock-data",
     "start-mockapi": "json-server --watch src/api/statistics-db.json --port 3001"
@@ -49,6 +50,8 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "asynquence": "^0.10.2",
+    "asynquence-contrib": "^0.28.2",
     "babel-loader": "^8.1.0",
     "babel-preset-latest": "^6.24.1",
     "babel-register": "^6.26.0",
@@ -59,6 +62,7 @@
     "open": "^8.0.2",
     "path": "^0.12.7",
     "prettier": "^2.0.5",
+    "request": "^2.88.2",
     "webpack-dev-middleware": "^4.1.0",
     "whatwg-fetch": "^3.6.2"
   }
