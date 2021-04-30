@@ -1,6 +1,6 @@
 import { getUsers } from '../api/userApi';
 
-
+// Create a selection list for all the available regions
 function selected() {
   getUsers().then((data) => {
     let newArray = data.map((element) => element.id);
@@ -30,7 +30,6 @@ selected();
 
 //Updating the footer with the selected region value
 function displayRawDataSessions(optionValue) {
-    console.log(optionValue);
    getUsers().then((data) => {
      for(var i in data){
        if(data[i].id === +optionValue){
