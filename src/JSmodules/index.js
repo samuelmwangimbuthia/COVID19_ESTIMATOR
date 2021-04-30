@@ -5,10 +5,10 @@ import { getUsers } from '../api/userApi';
 
 
 
-getUsers()
+export default getUsers()
   .then(results => {
     for (var i in results) {
-      if (results[i].id === 99079604) { //to import optionValue from sessionTemplate.js
+      if (results[i].id === 75341457) { //to import optionValue from sessionTemplate.js
         let data = results[i];
         console.log(data)
         return data;
@@ -16,7 +16,7 @@ getUsers()
     }
 
   })
-  .then(function covid19Estimator(data){
+  .then((data)=>{
     const
       { reportedCases,
         totalHospitalBeds,
@@ -91,6 +91,12 @@ getUsers()
     };
 
   })
-
-export { covid19Estimator as default }
-
+/*
+.then(
+  function covid19Estimator(evt){
+    console.log(evt.data)
+    console.log(evt.impact)
+    console.log(evt.severeImpact)
+  }
+)
+*/

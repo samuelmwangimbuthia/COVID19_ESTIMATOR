@@ -1,7 +1,12 @@
-import {covid19Estimator} from './index'
+import dataPromise from './index'
 
-
-console.log(covid19Estimator);
+dataPromise.then((evt)=>{
+  //function (evt){console.log(evt);}
+  for(var x in evt){
+    
+  }
+  )
 // update the tiles with the calculations
+
 
 
