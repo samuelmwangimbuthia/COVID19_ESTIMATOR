@@ -11,7 +11,7 @@
     "build-core": "asynquence",
     "generate-mock-data": "babel-node src/JSmodules/buildScripts/generateMockStatistics",
     "prestart-mockapi": "npm run generate-mock-data",
-    "start-mockapi": "json-server --watch src/api/statistics-db.json --port 9001"
+    "start-mockapi": "json-server --watch src/api/statistics-db.json --port 3001"
   },
   "repository": {
     "type": "git",

@@ -1,28 +1,27 @@
-import _, { result } from 'lodash';
 import '../api/statistics-db.json';
 
 import { getUsers } from '../api/userApi';
 
-
-
+var optionValue = document.getElementById('toggle').addEventListener('change', async (event) => {
+  await event.currentTarget.value;
+})
 export default getUsers()
   .then(results => {
-    for (var i in results) {
-      if (results[i].id === 75341457) { //to import optionValue from sessionTemplate.js
+    for (var i in results) {     
+      if (results[i].id === optionValue) { //FIXME:to import optionValue from sessionTemplate.js
         let data = results[i];
-        console.log(data)
+        //console.log(data);
         return data;
       }
-    }
-
-  })
+      
+  }})
   .then((data)=>{
     const
       { reportedCases,
         totalHospitalBeds,
         avgDailyIncomeUSD }
         = data;
-    console.log(reportedCases)
+    //console.log(reportedCases)
 
     const impact = {
       currentlyInfected: reportedCases * 10,
@@ -89,14 +88,8 @@ export default getUsers()
       impact,
       severeImpact,
     };
-
   })
-/*
-.then(
-  function covid19Estimator(evt){
-    console.log(evt.data)
-    console.log(evt.impact)
-    console.log(evt.severeImpact)
-  }
-)
-*/
+  /*
+  .then(function(evt){
+    console.log(typeof evt.impact);
+  }) */
