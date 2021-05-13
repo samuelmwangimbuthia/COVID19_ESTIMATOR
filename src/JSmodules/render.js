@@ -1,10 +1,11 @@
 
-import dataPromise from './index'
+import {dataPromise} from './index'
 
+/*
 dataPromise.then((evt)=>{
   renderAll('impact','normalCurrentlyInfected',evt); 
   renderAll('severeImpact','severeCurrentlyInfected',evt); 
-}) 
+}) */
 
 //id1 is the returned object on severity
 // id2 is the HTML element to be updated with the value
