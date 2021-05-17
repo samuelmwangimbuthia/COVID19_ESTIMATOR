@@ -119,8 +119,6 @@ document.getElementById('toggle2').addEventListener('change', async (event) => {
     output += `${currentEvt[prop](requestedTimeInDays)}`;
     calculatedEstimate.innerHTML = output;
 }
-
-    //displayRawDataSessions(optionValue); 
   } catch (err) {
     console.error(err);
   }
