@@ -27,7 +27,10 @@
             <span>
                 <label for="select-period">Period</label>
                 <select id="toggle2" >
-                    <option >25364</option>
+                    <option >30</option>
+                    <option >90</option>
+                    <option >120</option>
+                    <option >360</option>
                 </select>
             </span>
             <p></p>
@@ -54,13 +57,13 @@
                 <div class="data">
                     <div class="column1">
                         <div class="normal title">Normal</div>
-                        <div class="units">100</div>
-                        <div class="units">Available</div>
+                        <div id="availableBeds">100</div>
+                        <div >Available</div>
                     </div>
                     <div class="column1">
                         <div class="severe title">Severe</div>
-                        <div class="units">-25</div>
-                        <div class="units">shortage</div>
+                        <div id="shortageBeds">-25</div>
+                        <div >shortage</div>
                     </div>                    
                 </div>
                 <p>Negative numbers indicate shortage</p>
@@ -70,11 +73,11 @@
                 <div class="data">
                     <div class="column1">
                         <div class="normal title">Normal</div>
-                        <div class="units">Kshs.100</div>
+                        <div id="normalDollarsInFlight">Kshs.100</div>
                     </div>
                     <div class="column1">
                         <div class="severe title">Severe</div>
-                        <div class="units">Kshs.25Billion</div>
+                        <div id="severeDollarsInFlight">Kshs.25Billion</div>
                     </div>       
                 </div>
                 <p>50X more people infected than known cases</p>
@@ -84,11 +87,11 @@
                 <div class="data">
                     <div class="column1">
                         <div class="normal title">Available</div>
-                        <div class="units">100</div>
+                        <div id="normalICUCare">100</div>
                     </div>
                     <div class="column1">
                         <div class="severe title">shortage</div>
-                        <div class="units">700</div>
+                        <div id="severeICUCare">700</div>
                     </div>                    
                 </div>
                 <p>50X more people infected than known cases</p>

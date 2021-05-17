@@ -1,5 +1,4 @@
-
-import {dataPromise} from './index'
+import { dataPromise } from './index';
 
 /*
 dataPromise.then((evt)=>{
@@ -10,13 +9,12 @@ dataPromise.then((evt)=>{
 //id1 is the returned object on severity
 // id2 is the HTML element to be updated with the value
 
-  function renderAll(id1,id2,evt){
-    let someProd = id1
+function renderAll(id1, id2, evt) {
+  let someProd = id1;
   if (someProd in evt) {
     let calculatedCurrentInfection = document.getElementById(id2);
     let output = '';
     output += `${evt[someProd].currentlyInfected}`;
     calculatedCurrentInfection.innerHTML = output;
   }
-
-  }
+}
