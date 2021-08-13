@@ -55,6 +55,8 @@
     "babel-loader": "^8.1.0",
     "babel-preset-latest": "^6.24.1",
     "babel-register": "^6.26.0",
+    "chart.js": "^3.3.0",
+    "fs": "0.0.1-security",
     "json-schema-faker": "^0.5.0-rcv.33",
     "json-server": "^0.16.3",
     "lodash": "^4.17.21",
@@ -65,5 +67,8 @@
     "request": "^2.88.2",
     "webpack-dev-middleware": "^4.1.0",
     "whatwg-fetch": "^3.6.2"
+  },
+  "browser": {
+    "fs": false
   }
 }
