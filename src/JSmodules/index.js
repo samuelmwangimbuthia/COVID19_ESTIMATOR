@@ -1,21 +1,22 @@
 import '../api/statistics-db.json';
+import Chart from 'chart.js/auto';
 
 import { getUsers } from '../api/userApi';
 
 document.getElementById('toggle').addEventListener('change', async (event) => {
   try {
     var optionValue = await event.currentTarget.value;
-    console.log (optionValue)
-    displayRawDataSessions(optionValue); 
+    console.log(optionValue)
+    displayRawDataSessions(optionValue);
   } catch (err) {
     console.error(err);
   }
 });
 //displayRawDataSessions(optionValue);
-export default function displayRawDataSessions(optionValue) { 
+export default function displayRawDataSessions(optionValue) {
   getUsers().then(results => {
     for (var i in results) {
-      if (results[i].id === +optionValue) { 
+      if (results[i].id === +optionValue) {
         let data = results[i];
         const
           { reportedCases,
@@ -83,7 +84,7 @@ export default function displayRawDataSessions(optionValue) {
           },
         };
         console.log(impact.severeCasesByRequestedTime(30))
-        dataPromise( {
+        dataPromise({
           data,
           impact,
           severeImpact,
@@ -94,47 +95,47 @@ export default function displayRawDataSessions(optionValue) {
 
 }
 
-function dataPromise(evt){
-  renderAll('impact','normalCurrentlyInfected','currentlyInfected',evt); 
-  renderAll('severeImpact','severeCurrentlyInfected','currentlyInfected',evt); 
-  calc('impact','availableBeds','hospitalBedsByRequestedTime',evt); 
-  calc('severeImpact','shortageBeds','hospitalBedsByRequestedTime',evt); 
-  calc('impact','normalDollarsInFlight','dollarsInFlight',evt); 
-  calc('severeImpact','severeDollarsInFlight','dollarsInFlight',evt); 
-  calc('impact','normalICUCare','casesForICUByRequestedTime',evt); 
-  calc('severeImpact','severeICUCare','casesForICUByRequestedTime',evt); 
+function dataPromise(evt) {
+  renderAll('impact', 'normalCurrentlyInfected', 'currentlyInfected', evt);
+  renderAll('severeImpact', 'severeCurrentlyInfected', 'currentlyInfected', evt);
+  calc('impact', 'availableBeds', 'hospitalBedsByRequestedTime', evt);
+  calc('severeImpact', 'shortageBeds', 'hospitalBedsByRequestedTime', evt);
+  calc('impact', 'normalDollarsInFlight', 'dollarsInFlight', evt);
+  calc('severeImpact', 'severeDollarsInFlight', 'dollarsInFlight', evt);
+  calc('impact', 'normalICUCare', 'casesForICUByRequestedTime', evt);
+  calc('severeImpact', 'severeICUCare', 'casesForICUByRequestedTime', evt);
 }
 
 //Rendering the computed estimates based on different periods
-function calc(id1,id2,prop,evt){
-document.getElementById('toggle2').addEventListener('change', async (event) => {
-  try {
-    let requestedTimeInDays = await event.currentTarget.value;
-    console.log (requestedTimeInDays);
-    let impactMagnitude = id1;
-    let output = '';
-    let currentEvt = evt[impactMagnitude]
-    if(prop){
-    let calculatedEstimate = document.getElementById(id2);
-    output += `${currentEvt[prop](requestedTimeInDays)}`;
-    calculatedEstimate.innerHTML = output;
-}
-  } catch (err) {
-    console.error(err);
-  }
-});
+function calc(id1, id2, prop, evt) {
+  document.getElementById('toggle2').addEventListener('change', async (event) => {
+    try {
+      let requestedTimeInDays = await event.currentTarget.value;
+      console.log(requestedTimeInDays);
+      let impactMagnitude = id1;
+      let output = '';
+      let currentEvt = evt[impactMagnitude]
+      if (prop) {
+        let calculatedEstimate = document.getElementById(id2);
+        output += `${currentEvt[prop](requestedTimeInDays)}`;
+        calculatedEstimate.innerHTML = output;
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  });
 }
 
 //id1 is the returned object on severity
 // id2 is the HTML element to be updated with the value
 
-function renderAll(id1, id2,prop, evt) {
+function renderAll(id1, id2, prop, evt) {
   let impactMagnitude = id1;
   let output = '';
   let currentEvt = evt[impactMagnitude]
-    if(prop){
+  if (prop) {
     let calculatedCurrentInfection = document.getElementById(id2);
     output += `${currentEvt[prop]}`;
     calculatedCurrentInfection.innerHTML = output;
-}
+  }
 }

@@ -27,11 +27,9 @@ async function getData(queries) {
   const response = await fetch(endpoint + queries);
    const data = await response.json();
   //console.log(data);
- // return data;
-  await fetchData(data);
-
-
+  return data;
 }
+
 async function main() {
   const AreaType = 'nation',
   //const AreaNameArray = ['england','wales','scotland']
@@ -56,19 +54,49 @@ async function main() {
      // const apiParams = `filters=${filters.join(';')};areaName=${area}&structure=${JSON.stringify(structure)}`,
       const apiParams = `filters=${filters.join(';')}&structure=${JSON.stringify(structure)}`,
       encodedParams = encodeURI(apiParams);
-      await getData(encodedParams);
+      return encodedParams;
  // }
   
 }
-
 async function fetchData(x){
- // console.log(JSON.stringify(x))
+  //JSON.stringify(x);
    const{data} = x;
-   console.log(Object.keys(data));
+   const keysArray = Object.keys(data[1]);
+   const valuessArray = Object.values(data[1]);
+   //console.log(data[1].date);
+   //console.log(keysArray);
+   //console.log(valuessArray);
+  return [valuessArray, keysArray];
 }
+main()
+.then(  function(params){
+   return getData(params)
+  //console.log(params);
+})
+.then(
+   function(data){
+  return fetchData(data);
+   
+  })
+  .then(
+      function (valuesArray) {
+        return valuesArray[0]
+      }
+  
+)
+.then(
+  function(dataSets){
+    createChart(dataSets)
+  }
+)
+.catch(function(reason){
+  console.log(reason)
+})
+
+function createChart(dataSets){
 const ctx = document.getElementById('myChart').getContext('2d');
-const xLabels = [];
-const yLables = [];
+const xLabels = dataSets[0];
+const yLables = dataSets[1];
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -77,7 +105,8 @@ const myChart = new Chart(ctx, {
         datasets: [{
             label: '# of Votes',
             //data: [12,8,2,4,5,8],
-            data: main(),
+            data : yLables,
+            //data: main(),
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -105,10 +134,4 @@ const myChart = new Chart(ctx, {
         }
     }
 });
-
-//fs.writeFile("./src/api/db3.json", main(),function(){
- // console.log("UK data generated");
-//});
-
-
-main();
+}

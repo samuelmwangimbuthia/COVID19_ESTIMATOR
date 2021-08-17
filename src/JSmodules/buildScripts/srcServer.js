@@ -7,7 +7,7 @@ const config = require('../../../webpack.config');
 const app = express();
 
 app.route = express.Router();
-const port = 3000
+const port = 8000
 const compiler = webpack(config);
 
 app.use(express.json());
