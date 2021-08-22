@@ -1,25 +1,3 @@
-import { dataPromise } from './index';
-import fs from 'fs';
-import Chart from 'chart.js/auto';
-
-/*
-dataPromise.then((evt)=>{
-  renderAll('impact','normalCurrentlyInfected',evt); 
-  renderAll('severeImpact','severeCurrentlyInfected',evt); 
-}) */
-
-//id1 is the returned object on severity
-// id2 is the HTML element to be updated with the value
-
-function renderAll(id1, id2, evt) {
-  let someProd = id1;
-  if (someProd in evt) {
-    let calculatedCurrentInfection = document.getElementById(id2);
-    let output = '';
-    output += `${evt[someProd].currentlyInfected}`;
-    calculatedCurrentInfection.innerHTML = output;
-  }
-}
 
 
 async function getData(queries) {
@@ -58,60 +36,22 @@ async function main() {
  // }
   
 }
-async function fetchData(x){
-  //JSON.stringify(x);
-   const{data} = x;
-   const keysArray = Object.keys(data[1]);
-   const valuessArray = Object.values(data[3]);
-   //console.log(data[1].date);
-   //console.log(keysArray);
-   //console.log(valuessArray);
-  return [keysArray, valuessArray];
-}
-main()
-.then(  function(params){
-   return getData(params)
-  //console.log(params);
-})
-.then(
-   function(data){
-  return fetchData(data);
-   
-  })
-  .then(
-      function (valuesArray) {
-        return valuesArray
-      }
-  
-)
-.then(
-  function(dataSets){
-    createChart([dataSets])
-  }
-)
-.catch(function(reason){
-  console.log(reason)
-})
+async function fetchData(x) {
+  const { data } = x;
+  const keysArray = Object.keys(data[1]);
+  const valuessArray = Object.values(data[3]);
 
-function createChart([dataSets]) {
-  const ctx = document.getElementById('myChart').getContext('2d');
-  const xLabels = dataSets[0];
-  const yLables = dataSets[1];
-  const myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: xLabels,
-      datasets: [{
-        data: yLables,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
+  
+  let myDataArray = x.data;
+  let myDatesArray = myDataArray.map((element) => {
+    return element.date;
   });
+
+  let myDailyCasesArray = myDataArray.map((element) => {
+    return element.dailyCases;
+  });
+ 
+  return [keysArray, valuessArray, myDatesArray, myDailyCasesArray];
 }
+
+export {getData, main, fetchData}
