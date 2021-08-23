@@ -9,10 +9,7 @@ async function getData(queries) {
 }
 
 async function main() {
-  const AreaType = 'nation',
-  //const AreaNameArray = ['england','wales','scotland']
-  AreaName = 'england';
-  const filters = [`areaType=${AreaType}`,`areaName=${AreaName}`],
+  const filters = ['areaType','nation'],
     structure = {
       date: 'date',
       name: 'areaName',
@@ -30,7 +27,7 @@ async function main() {
 
   //for ( const area of AreaNameArray ) {
      // const apiParams = `filters=${filters.join(';')};areaName=${area}&structure=${JSON.stringify(structure)}`,
-      const apiParams = `filters=${filters.join(';')}&structure=${JSON.stringify(structure)}`,
+      const apiParams = `filters=${filters.join('=')}&structure=${JSON.stringify(structure)}`,
       encodedParams = encodeURI(apiParams);
       return encodedParams;
  // }

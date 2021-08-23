@@ -81,11 +81,11 @@ function createChart([dataSets]) {
 
 //progressive line chart
 const data = yLables;
-//const data2 = yLables.map(function(elem){
- //   return elem*2;
-//});
+const data2 = yLables.map(function(elem){
+   return elem*2;
+});
 
-//const data = [];
+/*const data = [];
 const data2 = [];
 let prev = 100;
 let prev2 = 80;
@@ -95,13 +95,13 @@ for (let i = 0; i < 1000; i++) {
   prev2 += 5 - Math.random() * 10;
   data2.push({x: i, y: prev2});
 }
+*/
 
-
-const totalDuration = 10000;
+const totalDuration = 1000;
 const delayBetweenPoints = totalDuration / data.length;
-const previousY = (ctx) => 
-ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue(100) :
- ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'], true).y;
+const previousY = (proLinectx) => 
+proLinectx.index === 0 ? proLinectx.chart.scales.y.getPixelForValue(10000) :
+proLinectx.chart.getDatasetMeta(proLinectx.datasetIndex).data[proLinectx.index - 1].getProps(['y'], true).y;
 
 const progressiveLineChart = new Chart(proLinectx, {
     type: 'line',
